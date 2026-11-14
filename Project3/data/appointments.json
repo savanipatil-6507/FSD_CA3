@@ -1,0 +1,26 @@
+[
+  {
+    "id": "APT-301",
+    "patientName": "Oliver Twist",
+    "patientPhone": "9812345670",
+    "department": "Pediatrics",
+    "doctorName": "Dr. Sarah Brown",
+    "appointmentDate": "2026-11-20",
+    "appointmentTime": "09:30",
+    "reason": "General health assessment",
+    "status": "Scheduled",
+    "createdAt": "2026-11-14T10:00:00.000Z"
+  },
+  {
+    "id": "APT-302",
+    "patientName": "Emma Watson",
+    "patientPhone": "9876501234",
+    "department": "Cardiology",
+    "doctorName": "Dr. Keith Miller",
+    "appointmentDate": "2026-11-22",
+    "appointmentTime": "11:00",
+    "reason": "ECG follow-up examination",
+    "status": "Scheduled",
+    "createdAt": "2026-11-14T10:30:00.000Z"
+  }
+]

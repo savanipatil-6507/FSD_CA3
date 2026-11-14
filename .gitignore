@@ -1,0 +1,64 @@
+# ==========================================
+# Full Stack Development (FSD_CA3) .gitignore
+# ==========================================
+
+# Dependencies
+node_modules/
+*/node_modules/
+*/*/node_modules/
+.pnp
+.pnp.js
+
+# Environment Variables & Secrets (Keep .env.example tracked)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+!.env.example
+!*/.env.example
+!*/*/.env.example
+
+# Production & Build Outputs
+dist/
+build/
+*/dist/
+*/*/dist/
+*/build/
+*/*/build/
+
+# Local Databases & SQLite files
+*.sqlite
+*.sqlite3
+*.db
+hospital.sqlite
+*/hospital.sqlite
+*/*/hospital.sqlite
+
+# Logs & Audit files
+logs/
+*/logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor & OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Vite & Bundler Caches
+.vite/
+*/.vite/
+*/*/.vite/
+.cache/

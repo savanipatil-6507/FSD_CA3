@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City Care Hospital - Appointment Management Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Header Navigation -->
+  <header>
+    <div class="container header-content">
+      <div class="brand">
+        <span class="brand-icon">🏥</span>
+        <div>
+          <h1>City Care General Hospital</h1>
+          <p>Online Patient Appointment Management System</p>
+        </div>
+      </div>
+      <div>
+        <button id="refresh-btn" class="btn btn-secondary btn-sm" title="Reload from server">
+          🔄 Refresh Data
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Live Stats Overview -->
+    <section class="stats-grid" id="stats-section">
+      <div class="stat-card">
+        <div class="stat-icon">📅</div>
+        <div class="stat-info">
+          <h3 id="stat-total">0</h3>
+          <p>Total Bookings</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background-color: #fef3c7; color: #d97706;">⏳</div>
+        <div class="stat-info">
+          <h3 id="stat-scheduled">0</h3>
+          <p>Scheduled</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background-color: #dcfce7; color: #16a34a;">✅</div>
+        <div class="stat-info">
+          <h3 id="stat-completed">0</h3>
+          <p>Completed</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon" style="background-color: #fee2e2; color: #dc2626;">❌</div>
+        <div class="stat-info">
+          <h3 id="stat-cancelled">0</h3>
+          <p>Cancelled</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Layout -->
+    <div class="main-layout">
+      <!-- Left Panel: Appointment Registration Form -->
+      <section class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">📝 Book an Appointment</h2>
+        </div>
+        <div class="panel-body">
+          <form id="appointment-form" novalidate>
+            <div class="form-group">
+              <label for="patientName">Patient Full Name *</label>
+              <input type="text" id="patientName" placeholder="e.g. John Doe">
+              <span class="field-error" id="error-patientName"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="patientPhone">Contact Phone Number *</label>
+              <input type="tel" id="patientPhone" placeholder="10-digit mobile number">
+              <span class="field-error" id="error-patientPhone"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="department">Medical Department *</label>
+              <select id="department">
+                <option value="">-- Select Department --</option>
+                <option value="Cardiology">Cardiology</option>
+                <option value="Neurology">Neurology</option>
+                <option value="Orthopedics">Orthopedics</option>
+                <option value="Pediatrics">Pediatrics</option>
+                <option value="Dermatology">Dermatology</option>
+                <option value="General Medicine">General Medicine</option>
+              </select>
+              <span class="field-error" id="error-department"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="doctorName">Attending Physician *</label>
+              <input type="text" id="doctorName" placeholder="e.g. Dr. Emily Carter">
+              <span class="field-error" id="error-doctorName"></span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="appointmentDate">Date *</label>
+                <input type="date" id="appointmentDate">
+                <span class="field-error" id="error-appointmentDate"></span>
+              </div>
+              <div class="form-group">
+                <label for="appointmentTime">Time Slot *</label>
+                <input type="time" id="appointmentTime">
+                <span class="field-error" id="error-appointmentTime"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="reason">Symptoms / Medical Reason *</label>
+              <textarea id="reason" rows="3" placeholder="Briefly describe the purpose of the visit..."></textarea>
+              <span class="field-error" id="error-reason"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="submit-btn">
+              <span>Confirm & Book Appointment</span>
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Right Panel: Appointment Listing View with Controls -->
+      <section class="panel">
+        <div class="panel-header">
+          <h2 class="panel-title">📋 Scheduled Appointments</h2>
+          <span id="record-count" style="font-size: 0.85rem; color: #64748b;">Showing 0 records</span>
+        </div>
+        <div class="panel-body">
+          <!-- Filter and Sorting Bar -->
+          <div class="controls-bar">
+            <div class="controls-group">
+              <input type="text" id="search-input" placeholder="🔍 Search patient or doctor...">
+              <select id="filter-status">
+                <option value="ALL">All Statuses</option>
+                <option value="Scheduled">Scheduled</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option>
+              </select>
+            </div>
+            <div class="controls-group">
+              <label for="sort-by" style="font-size: 0.85rem; font-weight: 600;">Sort By:</label>
+              <select id="sort-by">
+                <option value="date-asc">Date (Earliest First)</option>
+                <option value="date-desc">Date (Latest First)</option>
+                <option value="name-asc">Patient Name (A-Z)</option>
+                <option value="name-desc">Patient Name (Z-A)</option>
+                <option value="status">Status</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Dynamic List Container -->
+          <div id="appointment-list" class="appointment-list">
+            <div class="loading-spinner">Loading appointments data...</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Notification Toasts -->
+  <div id="toast-container"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,23 @@
+{
+  "name": "hospital-appointment-node-utility",
+  "version": "1.0.0",
+  "description": "Core Node.js hospital appointment server utility without Express",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test-api.js"
+  },
+  "keywords": [
+    "nodejs",
+    "http",
+    "fs",
+    "path",
+    "streams",
+    "eventemitter",
+    "vanilla-node"
+  ],
+  "author": "",
+  "license": "ISC"
+}
+

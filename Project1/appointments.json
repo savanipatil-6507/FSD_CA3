@@ -1,0 +1,58 @@
+[
+  {
+    "id": "APT-101",
+    "patientName": "Sarah Jenkins",
+    "patientPhone": "9876543210",
+    "department": "Cardiology",
+    "doctorName": "Dr. Robert Vance",
+    "appointmentDate": "2026-11-20",
+    "appointmentTime": "10:30",
+    "reason": "Routine heart checkup and blood pressure review",
+    "status": "Scheduled"
+  },
+  {
+    "id": "APT-102",
+    "patientName": "Arun Kumar",
+    "patientPhone": "9123456780",
+    "department": "Neurology",
+    "doctorName": "Dr. Eleanor Wright",
+    "appointmentDate": "2026-11-18",
+    "appointmentTime": "14:00",
+    "reason": "Chronic migraine and visual aura consultations",
+    "status": "Completed"
+  },
+  {
+    "id": "APT-103",
+    "patientName": "Maria Gonzalez",
+    "patientPhone": "9988776655",
+    "department": "Orthopedics",
+    "doctorName": "Dr. Marcus Chen",
+    "appointmentDate": "2026-11-25",
+    "appointmentTime": "11:15",
+    "reason": "Post-fracture knee rehabilitation assessment",
+    "status": "Scheduled"
+  },
+  {
+    "id": "APT-104",
+    "patientName": "David Smith",
+    "patientPhone": "9012345678",
+    "department": "Pediatrics",
+    "doctorName": "Dr. Fiona Gallagher",
+    "appointmentDate": "2026-11-16",
+    "appointmentTime": "09:00",
+    "reason": "Annual pediatric wellness exam and vaccination",
+    "status": "Cancelled"
+  },
+  {
+    "id": "APT-105",
+    "patientName": "Pooja Sharma",
+    "patientPhone": "9345678901",
+    "department": "Dermatology",
+    "doctorName": "Dr. Alan Mercer",
+    "appointmentDate": "2026-11-22",
+    "appointmentTime": "16:45",
+    "reason": "Allergic skin rash diagnosis and treatment plan",
+    "status": "Scheduled"
+  }
+]
+
